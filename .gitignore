@@ -1,0 +1,7 @@
+.serverless
+node_modules
+.build
+.vscode
+docker
+package-lock.json
+yarn.lock

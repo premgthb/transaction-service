@@ -1,0 +1,32 @@
+service: transaction-api-sv3
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+
+functions:
+  createTransaction:
+    handler: src/handlers.createTransaction
+    events:
+      - httpApi:
+          path: /transaction
+          method: POST
+
+  getTransactions:
+    handler: src/handlers.getTransactions
+    events:
+      - httpApi:
+          path: /transactions
+          method: GET
+
+  updateTransaction:
+    handler: src/handlers.updateTransaction
+    events:
+      - httpApi:
+          path: /transaction/{id}
+          method: PUT
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-offline
